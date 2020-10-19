@@ -3,10 +3,28 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-	got := Hello("Romeo")
-	want := "Hello, Romeo"
 
-	if got != want {
-		t.Errorf("got %q want %q", got, want)
+	assertCorrectMessage := func(t *testing.T, got, want string) {
+		// Helper to be executed
+		t.Helper()
+		if got != want {
+			t.Errorf("got %q want %q", got, want)
+		}
 	}
+
+	t.Run("saying hello to people", func(t *testing.T) {
+		got := Hello("Romeo")
+		want := "Hello, Romeo"
+
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("say 'Hello, World' when an empty string is supplied", func(t *testing.T) {
+		got := Hello("")
+		want := "Hello, World"
+
+		assertCorrectMessage(t, got, want)
+
+	})
+
 }
