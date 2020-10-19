@@ -1,6 +1,6 @@
-#TDD
+## TDD
 
-###Discipline
+### Discipline
 
 - Let's go over the cycle again
 - Write a test
